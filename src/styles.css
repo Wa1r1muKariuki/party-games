@@ -1,0 +1,126 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-tape: var(--tape);
+  --color-hot: var(--hot);
+  --color-success: var(--success);
+  --font-display: "Abril Fatface", serif;
+  --font-type: "Special Elite", monospace;
+  --font-hand: "Caveat", cursive;
+  --font-block: "Bungee", sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.9 0.05 355);
+  --foreground: oklch(0.22 0.03 350);
+  --card: oklch(0.985 0.008 80);
+  --card-foreground: oklch(0.22 0.03 350);
+  --popover: oklch(0.985 0.008 80);
+  --popover-foreground: oklch(0.22 0.03 350);
+  --primary: oklch(0.6 0.2 355);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.82 0.08 355);
+  --secondary-foreground: oklch(0.22 0.03 350);
+  --muted: oklch(0.94 0.02 355);
+  --muted-foreground: oklch(0.45 0.04 350);
+  --accent: oklch(0.88 0.12 95);
+  --accent-foreground: oklch(0.22 0.03 350);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.22 0.03 350);
+  --input: oklch(0.22 0.03 350);
+  --ring: oklch(0.6 0.2 355);
+  --paper: oklch(0.97 0.015 85);
+  --ink: oklch(0.18 0.02 350);
+  --tape: oklch(0.9 0.07 95 / 0.75);
+  --hot: oklch(0.55 0.23 0);
+  --success: oklch(0.6 0.15 150);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    background-image: radial-gradient(oklch(0.6 0.2 355 / 0.12) 1px, transparent 1px);
+    background-size: 14px 14px;
+    color: var(--color-foreground);
+    font-family: var(--font-type);
+  }
+}
+
+@utility polaroid {
+  background: var(--color-card);
+  padding: 0.75rem 0.75rem 1.25rem;
+  box-shadow: 0 10px 24px -10px oklch(0.3 0.08 350 / 0.45), 0 2px 4px oklch(0.3 0.05 350 / 0.15);
+}
+@utility tape {
+  position: absolute;
+  width: 5.5rem;
+  height: 1.4rem;
+  background: var(--color-tape);
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+}
+@utility ransom-a { background: var(--color-ink); color: var(--color-paper); font-family: var(--font-display); }
+@utility ransom-b { background: var(--color-paper); color: var(--color-hot); font-family: var(--font-block); }
+@utility ransom-c { background: var(--color-primary); color: var(--color-primary-foreground); font-family: var(--font-type); }
+@utility ransom-d { background: var(--color-accent); color: var(--color-ink); font-family: var(--font-display); }
+@utility sticker {
+  font-family: var(--font-block);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.35rem 0.75rem;
+  box-shadow: 3px 3px 0 var(--color-primary);
+}
+@utility btn-pop {
+  font-family: var(--font-block);
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: 2px solid var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-ink);
+  padding: 0.7rem 1.1rem;
+  transition: transform 0.1s, box-shadow 0.1s;
+  &:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--color-ink); }
+  &:disabled { opacity: 0.5; }
+}
+@utility field {
+  width: 100%;
+  background: var(--color-paper);
+  border: 2px solid var(--color-ink);
+  padding: 0.65rem 0.8rem;
+  font-family: var(--font-type);
+  font-size: 1.05rem;
+  outline: none;
+  &:focus { box-shadow: 3px 3px 0 var(--color-primary); }
+}
