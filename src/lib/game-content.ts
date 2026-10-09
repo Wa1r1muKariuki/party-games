@@ -46,9 +46,9 @@ export const ROUNDS:Round[] = [
  {id:'howold',title:'How Old Was She?',blurb:'A trip down memory lane.',questions:[
  // Put the real age in place of null (for example answer:24). Photos live in the "public" folder.
  {key:'ho1',kind:'number',prompt:'How old was Serah in this photo?',answer:6,image:'/serah-1.jpg'},
- {key:'ho2',kind:'number',prompt:'How old was Muraimu in this photo?',answer:null,image:'/muraimu-1.jpg'},
+ {key:'ho2',kind:'number',prompt:'How old was Muraimu in this photo?',answer:16,image:'/muraimu-1.jpg'},
  {key:'ho3',kind:'number',prompt:'How old was Serah in this photo?',answer:11,image:'/serah-2.jpg'},
- {key:'ho4',kind:'number',prompt:'How old was Muraimu in this photo?',answer:null,image:'/muraimu-2.jpg'},
+ {key:'ho4',kind:'number',prompt:'How old was Muraimu in this photo?',answer:12,image:'/muraimu-2.jpg'},
  ]},
  {id:'dares',title:'Random Dares',blurb:'Nothing crazy — we are watching. ♡',questions:DARES},
 ];
