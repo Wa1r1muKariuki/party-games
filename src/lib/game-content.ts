@@ -1,7 +1,7 @@
 export type Question =
  | { key:string; kind:'text'; prompt:string; answer:string }
  | { key:string; kind:'choice'; prompt:string; options:string[]; answer:number }
- | { key:string; kind:'number'; prompt:string; answer:number | null }
+ | { key:string; kind:'number'; prompt:string; answer:number | null; image?:string }
  | { key:string; kind:'done'; prompt:string; points:number };
 export type Round = { id:string; title:string; blurb:string; questions:Question[] };
 export const EVENT_START = '2026-10-09T19:00:00+03:00';
@@ -44,8 +44,11 @@ export const ROUNDS:Round[] = [
  choices('wk20','Whose celebrity crush is Jason Momoa?',0),
  ]},
  {id:'howold',title:'How Old Was She?',blurb:'A trip down memory lane.',questions:[
- {key:'ho1',kind:'number',prompt:'How old was Serah in this photo?',answer:null},
- {key:'ho2',kind:'number',prompt:'How old was Muraimu in this photo?',answer:null},
+ // Put the real age in place of null (for example answer:24). Photos live in the "public" folder.
+ {key:'ho1',kind:'number',prompt:'How old was Serah in this photo?',answer:null,image:'/serah-1.jpg'},
+ {key:'ho2',kind:'number',prompt:'How old was Serah in this photo?',answer:null,image:'/serah-2.jpg'},
+ {key:'ho3',kind:'number',prompt:'How old was Muraimu in this photo?',answer:null,image:'/muraimu-1.jpg'},
+ {key:'ho4',kind:'number',prompt:'How old was Muraimu in this photo?',answer:null,image:'/muraimu-2.jpg'},
  ]},
  {id:'dares',title:'Random Dares',blurb:'Nothing crazy — we are watching. ♡',questions:DARES},
 ];
