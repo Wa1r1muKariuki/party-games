@@ -9,6 +9,9 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Party game content and scoring live in src/lib/game-content.ts; server functions grade answers so phones can't fake scores.
-- Players are anonymous (name + secret token in localStorage); all writes go through server functions, the browser only reads the leaderboard and round state live.
-- Host actions are protected by the HOST_PIN secret, checked server-side.
+- Keep party content in src/lib/game-content.ts and grade submissions on the server so clients cannot set scores.
+- Persist player credentials and dare assignments in Cloud; localStorage stores only the returning player's credential, not scores.
+- Keep private player tokens out of public leaderboard projections; all private reads and submissions verify the player token on the server.
+- Protect host operations using HOST_PIN inside server-only handlers; never embed host credentials in client code.
+- Award scores through an atomic answer-insert trigger with unique question keys, including the event bonus, to prevent duplicate or lost points.
+- Place privileged helpers in game.server.ts and import them inside server-function handlers to preserve Worker bundle boundaries.

@@ -5,8 +5,15 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1791536826688,
-      "tag": "0000_migration",
+      "when": 1791547768407,
+      "tag": "0000_party_game_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791548642579,
+      "tag": "0001_add_game_preview_switch",
       "breakpoints": true
     }
   ]

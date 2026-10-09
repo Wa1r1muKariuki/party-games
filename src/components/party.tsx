@@ -5,7 +5,7 @@ const STYLES = ["ransom-a", "ransom-b", "ransom-c", "ransom-d"];
 
 export function Ransom({ text, className }: { text: string; className?: string }) {
   return (
-    <span className={cn("inline-flex flex-wrap justify-center gap-1", className)} aria-label={text}>
+    <span className={cn("inline-flex flex-nowrap justify-center gap-1", className)} aria-label={text}>
       {text.split("").map((ch, i) =>
         ch === " " ? (
           <span key={i} className="w-2" />
@@ -14,7 +14,7 @@ export function Ransom({ text, className }: { text: string; className?: string }
             key={i}
             aria-hidden
             className={cn("inline-block px-1.5 py-0.5 leading-none", STYLES[(i * 7 + ch.charCodeAt(0)) % 4])}
-            style={{ transform: `rotate(${((i * 37) % 11) - 5}deg)` }}
+            
           >
             {ch}
           </span>

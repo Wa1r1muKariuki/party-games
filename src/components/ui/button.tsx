@@ -9,6 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        party: "btn-pop rounded-none h-auto",
+        choice: "border-2 bg-paper text-ink rounded-none h-auto whitespace-normal active:bg-secondary",
+        track: "border-2 bg-paper text-ink rounded-none font-block h-auto whitespace-normal",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:

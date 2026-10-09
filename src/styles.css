@@ -124,3 +124,16 @@
   outline: none;
   &:focus { box-shadow: 3px 3px 0 var(--color-primary); }
 }
+
+:root { --shadow-paper: 0 10px 24px -10px oklch(0.3 0.08 350 / 0.45), 0 2px 4px oklch(0.3 0.05 350 / 0.15); }
+body { letter-spacing: 0; }
+.polaroid { box-shadow: var(--shadow-paper); }
+.party-title { display:flex; justify-content:center; flex-wrap:nowrap; white-space:nowrap; gap:1px; font-size:clamp(13px,5.2vw,22px); }
+.party-title > span { padding:3px 2px; }
+.party-title > span:nth-child(3n) { transform:rotate(-4deg); }
+.party-title > span:nth-child(3n + 1) { transform:rotate(3deg); }
+.event-photo { width:100%; height:auto; aspect-ratio:976/768; object-fit:contain; }
+.countdown { border-top:1px dashed var(--border); border-bottom:1px dashed var(--border); padding:16px 0; }
+.clock-digits { font-family:var(--font-block); font-size:30px; font-variant-numeric:tabular-nums; }
+.age-placeholder { aspect-ratio:4/3; display:grid; place-items:center; background:var(--muted); border:2px dashed var(--secondary); color:var(--muted-foreground); }
+@media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }

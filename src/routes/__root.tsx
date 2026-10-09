@@ -79,17 +79,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Serah x Muraimu — Birthday Games" },
-      { name: "description", content: "Party games for the Serah x Muraimu joint birthday." },
+      { name: "description", content: "Birthday party games for Serah and Muraimu at Location Rooftop." },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Serah x Muraimu — Birthday Games" },
+      { property: "og:description", content: "Birthday party games for Serah and Muraimu at Location Rooftop." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Caveat:wght@500;700&family=Special+Elite&display=swap",
-      },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Caveat:wght@500;700&family=Special+Elite&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,

@@ -22,12 +22,12 @@ export function useLeaderboard() {
   return players;
 }
 
-export function useUnlocked() {
-  const [unlocked, setUnlocked] = useState<string[]>([]);
+export function useGameState() {
+  const [state, setState] = useState<{ unlocked: string[]; preview: boolean }>({ unlocked: [], preview: false });
   useEffect(() => {
     const load = async () => {
-      const { data } = await supabase.from("game_state").select("unlocked").eq("id", 1).single();
-      setUnlocked(data?.unlocked ?? []);
+      const { data } = await supabase.from("game_state").select("unlocked, preview").eq("id", 1).single();
+      setState({ unlocked: data?.unlocked ?? ["crossword"], preview: data?.preview ?? false });
     };
     load();
     const ch = supabase
@@ -38,5 +38,5 @@ export function useUnlocked() {
       supabase.removeChannel(ch);
     };
   }, []);
-  return unlocked;
+  return state;
 }

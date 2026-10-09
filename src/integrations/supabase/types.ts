@@ -16,19 +16,19 @@ export type Database = {
     Tables: {
       answers: {
         Row: {
-          created_at: string
+          id: string
           player_id: string
           points: number
           qkey: string
         }
         Insert: {
-          created_at?: string
+          id?: string
           player_id: string
-          points?: number
+          points: number
           qkey: string
         }
         Update: {
-          created_at?: string
+          id?: string
           player_id?: string
           points?: number
           qkey?: string
@@ -46,16 +46,19 @@ export type Database = {
       game_state: {
         Row: {
           id: number
+          preview: boolean
           unlocked: string[]
           updated_at: string
         }
         Insert: {
           id?: number
+          preview?: boolean
           unlocked?: string[]
           updated_at?: string
         }
         Update: {
           id?: number
+          preview?: boolean
           unlocked?: string[]
           updated_at?: string
         }
@@ -64,6 +67,7 @@ export type Database = {
       players: {
         Row: {
           created_at: string
+          dare_key: string
           id: string
           name: string
           score: number
@@ -71,6 +75,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          dare_key: string
           id?: string
           name: string
           score?: number
@@ -78,6 +83,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          dare_key?: string
           id?: string
           name?: string
           score?: number
@@ -90,7 +96,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      party_join: {
+        Args: { dare_keys: string[]; player_name: string }
+        Returns: {
+          dare_key: string
+          id: string
+          name: string
+          token: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
